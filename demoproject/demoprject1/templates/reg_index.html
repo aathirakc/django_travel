@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Registration</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="{% static 'register/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css' %}">
+		
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="{% static 'register/css/style.css' %}">
+	</head>
+
+	<body>
+
+		<div class="wrapper">
+			<div class="inner">
+				<div class="image-holder">
+					<img src="{% static 'register/images/registration-form-6.jpg' %}" alt="">
+				</div>
+				<form action="register" method="post">
+					{% csrf_token %}
+					<h3>Registration</h3>
+					<div class="form-row">
+						<input type="text" class="form-control" name="username" placeholder="Username">
+						<input type="text" class="form-control" name="first_name" placeholder="first name">
+					</div>
+					<div class="form-row">
+						<input type="text" class="form-control" placeholder="last name" name="last_name">
+						<input type="text" class="form-control" placeholder="email" name="email">
+
+					</div>
+					<div class="form-row">
+					<input type="password" class="form-control" placeholder="password" name="password">
+					<input type="password" class="form-control" placeholder="retype password" name="cpassword">
+</div>
+<!--<textarea name="" id="" placeholder="Message" class="form-control" style="height: 130px;"></textarea>&ndash;&gt;-->
+					<button>Register
+						<i class="zmdi zmdi-long-arrow-right"></i>
+					</button>
+									<div class="form-row">
+														{% for i in messages %}
+<h4>{{ i }}</h4>
+{% endfor %}
+				</div>
+				</form>
+
+
+			</div>
+
+
+		</div>
+
+
+		<script src="{% static 'register/js/jquery-3.3.1.min.js' %}"></script>
+		<script src="{% static 'register/js/main.js' %}"></script>
+	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
